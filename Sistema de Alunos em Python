@@ -1,0 +1,35 @@
+class Aluno:
+    def __init__(self, nome, idade, nota, faltas):
+        self.nome = nome
+        self.idade = idade
+        self.nota = nota
+        self.faltas = faltas
+        
+    def passou(self):
+        if self.nota >= 6:
+            print("passou")
+        elif self.nota < 6:
+            recuperação = input("fez recuperação?(s/n) :")
+            if recuperação == "s":
+                self.nota = self.nota + 2
+                print(f"parabéns,você aumentou 2 pontos, agora sua nota é {self.nota}")       
+                if self.nota >= 5:
+                    print("reprovou por nota")   
+        else:
+            print("a sua nota vai continuar a mesma")
+            
+
+
+    def falta(self):
+        faltas = self.faltas
+        if faltas <= 100:
+            print("não reprovou de ano")
+        else:
+            print("reprovou por faltas")
+                
+                
+
+aluno1 = Aluno("joao", 16, 3.0, 101)
+print(f"{aluno1.nome} {aluno1.idade} {aluno1.nota}")
+aluno1.passou()
+aluno1.falta()
